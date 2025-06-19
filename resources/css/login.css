@@ -1,0 +1,79 @@
+.body{
+    background-color: #121212;
+}
+
+#myVideo{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1;
+}
+
+.t-head{
+    color: #1ed760;
+}
+
+p.t-head{
+    color: white;
+}
+
+img.logo{
+    max-width: 200px; 
+    height: auto;
+}
+
+img.logo-2{
+    max-width: 100px; 
+    height: auto;
+}
+
+a.btn-spotify{
+    background-color: #1ed760;
+    color: #121212;
+    border-radius: 50px;
+    width: 100%;
+    padding: 10px 100px 10px 100px;
+}
+a.btn-spotify:hover{
+    background-color: white;
+    color: #121212;
+    text-decoration: none;
+}
+
+div.login-c{
+    box-shadow: #000000 0px 0px 20px 0px;
+    background-image: 
+        linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0.7) 40%, #000000 50%),
+        url('/images/qwer-bg.png');
+    background-position: 50% 150%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom: none;
+    padding-top: 350px;
+    /* margin-right: 50%; */
+    margin-top: 150px; 
+    width: 75%;
+    height: calc(100vh - 150px); 
+    position: relative;
+}
+
+div.login-c-2{
+    padding-bottom: 50px; 
+}
+
+@media (max-width: 768px) {
+    div.login-c {
+        aspect-ratio: 3 / 4; /* or adjust as needed */
+        width: 100%;
+    }
+
+    p.t-head{
+        font-size: 1.5rem; 
+    }
+
+    a.btn-spotify{
+        padding: 10px 50px 10px 50px; 
+    }
+}
