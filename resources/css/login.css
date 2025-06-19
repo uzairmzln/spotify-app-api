@@ -46,7 +46,7 @@ div.login-c{
     box-shadow: #000000 0px 0px 20px 0px;
     background-image: 
         linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0.7) 40%, #000000 50%),
-        url('/images/qwer-bg.jpg');
+        url('/images/qwer-bg.png');
     background-position: 50% 150%;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
