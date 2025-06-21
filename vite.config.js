@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import fs from 'fs';
 import path from 'path';
+import vue from '@vitejs/plugin-vue';
 
 // Function to recursively fetch all files with a given extension in a directory
 const getFiles = (dir, ext, fileList = []) => {
@@ -28,7 +29,13 @@ export default defineConfig({
             input: [...cssFiles, ...jsFiles], // Include all CSS and JS files
             refresh: false,
         }),
+        vue(), // If you're using Vue.js, include this plugin
     ],
+    server: {
+        headers: {
+        'Content-Security-Policy': 'default-src \'self\'; connect-src \'self\' wss://uzair-spotify.test:5179/;',
+        },
+    },
 });
 // // vite.config.js
 // import { defineConfig } from 'vite';

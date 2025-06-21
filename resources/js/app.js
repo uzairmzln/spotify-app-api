@@ -1,3 +1,9 @@
+import { createApp } from 'vue/dist/vue.esm-bundler.js';
 import './bootstrap';
+import dashboard from './components/dashboard.vue';
 
-console.log('Hello, welcome to the application!');
+createApp({
+    components: {
+        dashboard
+    }
+}).mount('#app');
