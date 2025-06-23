@@ -7,8 +7,8 @@
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-    <div id="app">
+<body style="background-color: #121212;">
+    <div id="app" class="container">
         <dashboard></dashboard>
     </div>
 </body>

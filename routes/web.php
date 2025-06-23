@@ -38,7 +38,7 @@ Route::get('/auth/spotify/callback', function () {
     return redirect('/dashboard');
 });
 
-Route::get('/spotify-user', [DashboardController::class, 'fetchSpotifyUser']);
+Route::get('/spotify-user', [DashboardController::class, 'fetchSpotifyApi']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
 // Route::get('/auth/spotify/callback', function () {
 //     $user = Socialite::driver('spotify')->user();

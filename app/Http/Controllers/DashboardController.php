@@ -13,7 +13,7 @@ class DashboardController extends Controller
         return view('components.dashboard');
     }
 
-    public function fetchSpotifyUser(){
+    public function fetchSpotifyApi(){
 
         // Check if the user is authenticated
         $token = session('spotify_token');
@@ -24,12 +24,19 @@ class DashboardController extends Controller
         // Retrieve the user information from the session
         $userprofile = Http::withToken($token)
             ->get('https://api.spotify.com/v1/me');
-        if(!$userprofile){
-            return response()->json(['error' => 'Failed to retrieve user profile from Spotify'], 500);
-        }
+            if(!$userprofile){
+                return response()->json(['error' => 'Failed to retrieve user profile from Spotify'], 500);
+            }
+        
+        $userTopTracks = Http::withToken($token)
+            ->get('https://api.spotify.com/v1/me/top/tracks?limit=5');
+            if(!$userTopTracks){
+                return response()->json(['error' => 'Failed to retrieve top tracks from Spotify'], 500);
+            }
         
         return response()->json([
-            'userprofile' => $userprofile->json()
+            'userprofile' => $userprofile->json(),
+            'userTopTracks' => $userTopTracks->json()
         ], 200);
     }
 }
