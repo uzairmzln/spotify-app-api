@@ -62,7 +62,15 @@ import { HiShare } from '@kalimahapps/vue-icons';
 
 export default {
     name: 'Dashboard',
-    components: { Carousel, Slide, Pagination, Navigation, AnOutlinedLike, FlChatEmpty, HiShare },
+    components: { 
+        Carousel, 
+        Slide, 
+        Pagination, 
+        Navigation, 
+        AnOutlinedLike, 
+        FlChatEmpty, 
+        HiShare 
+    },
     data() {
         return {
             userprofile: null,
