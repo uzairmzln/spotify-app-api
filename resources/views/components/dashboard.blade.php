@@ -6,10 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        #section1{
+            background-image: url('{{ asset("images/head-bg.png") }}');
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
-<body style="background-color: #121212;">
-    <div id="app" class="container">
-        <dashboard></dashboard>
+<body>
+    <div id="section1">
+        <section1></section1>
     </div>
 </body>
 </html>

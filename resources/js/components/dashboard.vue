@@ -7,45 +7,70 @@
         <p style="color: red;">{{ error }}</p>
     </div>
         
-    <div v-else-if="userprofile" class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <div class="row w-100 justify-content-center gap-3" style="height: 80vh;">
-            <div class="col-lg-5 profile-bg rounded-5">
-                <div class="d-flex align-items-center py-3">
-                    <img :src="userprofile.images[0].url" alt="Profile Image" class="round-pfp rounded-circle me-2">
-                    <span class="fs-6 fw-bold">{{ userprofile.display_name }}</span>
+    <div v-else-if="userprofile" class="d-flex justify-content-center align-items-center p-4">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="container text-head">
+                    <p class="fs-1 fw-bold text-white">Welcome to Your <span :style="{color: '#1db954'}">Spotify</span> Top 5 Tracks</p>
                 </div>
-                <div>
-                    <Carousel :items-to-show="1" :wrap-around="true" :autoplay="5000">
-                        <Slide v-for="(image, index) in images" :key="index">
-                            <div class="carousel__item">
-                                <img :src="image.url" :alt="image.alt" class="img-fluid">
-                                <!-- <div class="carousel-caption">
-                                    <p class="fw-bold mb-0">{{ image.name }}</p>
-                                </div> -->
-                            </div>
-                        </Slide>
-                        
-                        <template #addons class="d-flex align-items-center">
-                            <div class="carousel-controls">
-                                <AnOutlinedLike class="like-button"/>
-                                <FlChatEmpty class="like-button"/>
-                                <HiShare class="like-button"/>
-                                <Pagination class="pagination-custom"/>
-                            </div>
-                        </template>
-                    </Carousel>
-                    <div class="pt-2 mb-2">
-                        <span class="fs-6 me-3 fw-bolder">{{ userprofile.display_name }}</span>
-                        <span>Our Top Track are here :</span>
+            </div>
+            <div class="col-lg-6">
+                <div class="profile-bg rounded-5">
+                    <div class="d-flex align-items-center p-3">
+                        <img :src="userprofile.images[0].url" alt="Profile Image" class="round-pfp rounded-circle me-2">
+                        <span class="fs-6 fw-bold">{{ userprofile.display_name }}</span>
                     </div>
-                    <div v-for="(track, index) in userTopTracks.items" :key="track.id || index">
-                        <span class="fw-bold text-primary">#{{ index + 1 }} {{ track.name }}</span>
+                    <div>
+                        <Carousel :items-to-show="1" :wrap-around="true" :autoplay="5000">
+                            <Slide v-for="(image, index) in images.slice(0,5)" :key="index">
+                                <div class="carousel__item">
+                                    <img :src="image.url" :alt="image.alt" class="img-fluid">
+                                    <!-- <div class="carousel-caption">
+                                        <p class="fw-bold mb-0">{{ image.name }}</p>
+                                    </div> -->
+                                </div>
+                            </Slide>
+                            
+                            <template #addons class="d-flex align-items-center">
+                                <div class="carousel-controls p-3">
+                                    <AnOutlinedLike class="like-button"/>
+                                    <FlChatEmpty class="like-button"/>
+                                    <HiShare class="like-button"/>
+                                    <Pagination class="pagination-custom"/>
+                                </div>
+                            </template>
+                        </Carousel>
+                        <div class="p-3">
+                            <span class="fs-6 me-3 fw-bolder">{{ userprofile.display_name }}</span>
+                            <span>Our Top 5 Track are here :</span>
+                        </div>
+                        <div class="p-3">
+                            <div v-for="(track, index) in userTopTracks.items.slice(0,5)" :key="track.id || index">
+                                <span class="fw-bold text-primary">#{{ index + 1 }} {{ track.name }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 profile-bg-2 d-flex align-items-center justify-content-center rounded-5">
-                
-            </div>
+            <!-- <div class="profile-bg-2 rounded-5">
+                <div class="p-4">
+                    <p class="fs-4 fw-bold">Top 10 Tracks</p>
+                </div>
+                <div class="container p-2">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6" v-for="(track, index) in userTopTracks.items" :key="track.id || index">
+                            <div class="d-flex align-items-center gap-3 mb-3 p-2">
+                                <span class="fw-bold">{{ index + 1 }}</span> 
+                                <img :src="track.album.images[0].url" alt="Track Image" class="track-img img-fluid"> 
+                                <div>
+                                    <p class="fw-bold">{{ track.name }}</p>
+                                    <p class="">{{ track.artists[0].name }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
     </div>
     <div v-else>
@@ -144,6 +169,10 @@ export default {
         font-style: normal;
     }
 
+    .text-head {
+        margin-top: 50%;
+    }
+
     .profile-bg,
     .profile-bg-2{
         height: 100%;
@@ -200,5 +229,9 @@ export default {
         display: flex;
         justify-content: center;
         margin-bottom: 5px;
+    }
+
+    .track-img{
+        width: 100px;
     }
 </style>
