@@ -46,62 +46,16 @@
         </div>
     </div>
 </template>
+<script setup>
+    import { useSpotify } from '@/composables/useSpotify.js';
 
-<script>
-    export default{
-        name: 'section1',
-        data(){
-            return{
-                userprofile: null,
-                userTopTracks: null,
-                images: [],
-            }
-        },
-        mounted(){
-            this.fetchSpotifyApi();
-        },
-        methods: {
-            // Fetch user profile and top tracks from the backend
-            fetchSpotifyApi() {
-                fetch('/spotify-user')
-                    .then(res => {
-                        if (!res.ok) {
-                            throw new Error(`HTTP error! status: ${res.status}`);
-                        }
-                        return res.json();
-                    })
-                    .then(data => {
-                        if (data.error) {
-                            this.error = data.error;
-                        } else {
-                            this.userprofile = data.userprofile;
-                            this.userTopTracks = data.userTopTracks;
-
-                            console.log('Top Tracks:', this.userTopTracks);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching profile:', error);
-                        this.error = 'Failed to load profile. Please try again.';
-                    })
-                    .finally(() => {
-                        this.loading = false;
-                    });
-            },
-            // Populate images from userTopTracks
-            populatedImages(){
-                if(this.userTopTracks && this.userTopTracks.items) {
-                    this.images = this.userTopTracks.items.map((track, index) => ({
-                        url: track.album.images[0]?.url || '',
-                        alt: `Album ${index + 1}`,
-                        name: track.name,
-                    }));
-                } else {
-                    this.images = [];
-                }
-            }
-        }
-    }
+    const {
+        userprofile,
+        userTopTracks,
+        images,
+        error,
+        loading
+    } = useSpotify();
 </script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');

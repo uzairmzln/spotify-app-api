@@ -7,18 +7,26 @@
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
-        #section1{
-            background-image: url('{{ asset("images/head-bg.png") }}');
+        #section1, #section2 {
             height: 100vh;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+        }
+        #section1 {
+            background-image: url('{{ asset("images/head-bg.png") }}');
+        }
+        #section2 {
+            background-image: url('{{ asset("images/sec2-bg.png") }}');
         }
     </style>
 </head>
 <body>
     <div id="section1">
         <section1></section1>
+    </div>
+    <div id="section2">
+        <section2></section2>
     </div>
 </body>
 </html>
