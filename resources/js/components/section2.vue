@@ -15,7 +15,7 @@
                             <img :src="track.album.images[0].url" class="card-img-top track-image" alt="">
                         </div>
                         <div class="card-body track-details text-white">
-                            <h5 class="card-title">{{track.name}} - {{ track.artists[0].name }}</h5>
+                            <h5 class="card-title">{{i + 1}}. {{track.name}} - {{ track.artists[0].name }}</h5>
                             <p class="album-name">{{ track.album.name }}</p>
                             <p class="popularity">{{ track.popularity }} / 100</p>
                             <p class="duration">{{( track.duration_ms / 60000 ).toFixed(2)}} min</p>
