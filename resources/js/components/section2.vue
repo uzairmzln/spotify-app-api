@@ -120,4 +120,10 @@
         margin-bottom: 0;
     }
     
+    @media screen and (max-width: 768px) {
+        body {
+            min-width: 1024px;
+            overflow-x: auto;
+        }
+    }
 </style>

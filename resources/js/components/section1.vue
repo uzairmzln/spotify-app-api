@@ -166,7 +166,13 @@
         transform: translateY(-2px);
     }
 
-    @media (max-width: 768px) {
+    @media screen and (max-width: 768px) {
+        body {
+            min-width: 1024px;
+            overflow-x: auto;
+        }
+    }
+    /* @media (max-width: 768px) {
         .nav-menu {
             margin-top: 100px;
         }
@@ -229,5 +235,5 @@
         .badge-text {
             font-size: 1.1rem !important;
         }
-    }
+    } */
 </style>

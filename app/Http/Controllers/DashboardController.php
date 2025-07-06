@@ -34,9 +34,15 @@ class DashboardController extends Controller
                 return response()->json(['error' => 'Failed to retrieve top tracks from Spotify'], 500);
             }
         
+        $topTracksData = $userTopTracks->json();
+        $albumId = $topTracksData['items'][0]['album']['id'];
+        $albumTrackList = Http::withToken($token)
+            ->get("https://api.spotify.com/v1/albums/{$albumId}");
+
         return response()->json([
             'userprofile' => $userprofile->json(),
-            'userTopTracks' => $userTopTracks->json()
+            'userTopTracks' => $userTopTracks->json(),
+            'albumTrackList' => $albumTrackList->json()
         ], 200);
     }
 }
