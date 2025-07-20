@@ -10,7 +10,7 @@
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                height: '100vh'
+                minHeight: '100vh'
             }"
         >
         </div>

@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1024, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         #section1, #section2, #section3, #section3Bg{
-            height: 100vh;
+            min-height: 100vh;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
