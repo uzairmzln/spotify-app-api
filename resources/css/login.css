@@ -54,9 +54,9 @@ div.login-c{
     border-bottom: none;
     padding-top: 350px;
     /* margin-right: 50%; */
-    margin-top: 150px; 
+    /* margin-top: 150px;  */
     width: 75%;
-    height: calc(100vh - 150px); 
+    /* height: calc(100vh - 150px);  */
     position: relative;
 }
 
